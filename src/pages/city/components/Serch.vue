@@ -45,7 +45,7 @@ export default {
     }
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.search)
+    this.scroll = new Bscroll(this.$refs.search, {mouseWhell: true, click: true, tap: true})
   },
   watch: {
     keyword () {
