@@ -2,21 +2,21 @@
 <div>
   <div class="banner" @click="bannerClick">
     <img
-      src="http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_350x240_3a0fefe8.jpg"
+      :src="bannerImg"
       class="banner-img"
     >
     <div class="banner-info">
         <div class="banner-title">
-          北京世界园艺博览会
+          {{this.sightName}}
         </div>
         <div class="banner-number">
           <span class="iconfont">&#xe637;</span>
-          9
+          {{this.bannerImgs.length}}
         </div>
     </div>
   </div>
   <common-gallary
-    :imgs='imgs'
+    :imgs='bannerImgs'
     v-show="showGallery"
     @close="bannerClick"
   >
@@ -33,7 +33,6 @@ export default {
   },
   data () {
     return {
-      imgs: ['http://img1.qunarzz.com/sight/p0/1902/84/84696f368bbec10da3.img.jpg_350x240_3a0fefe8.jpg'],
       showGallery: false
     }
   },
@@ -41,6 +40,11 @@ export default {
     bannerClick: function () {
       this.showGallery = !this.showGallery
     }
+  },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
   }
 }
 </script>

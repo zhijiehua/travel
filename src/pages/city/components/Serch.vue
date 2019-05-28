@@ -40,6 +40,7 @@ export default {
   },
   methods: {
     handleCityClick (city) {
+      this.keyword = ''
       this.$router.push('/')
       this.$store.dispatch('changeCity', city)
     }
